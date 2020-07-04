@@ -17,4 +17,4 @@ clojure -A:build-depstar -m hf.depstar.uberjar mol-match.jar -C -m mol-match.cor
 
 ## Usage
 
-java -jar mol-match.jar <sequence-length> <output-file>
+```java -jar mol-match.jar <sequence-length> <output-file>```
