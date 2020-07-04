@@ -1,6 +1,6 @@
-(ns mol-match.core-test
+(ns mol-match.matcher-test
   (:require [clojure.test :refer [are is deftest testing]]
-            [mol-match.core :as SUT]))
+            [mol-match.matcher :as SUT]))
 
 (deftest matched-pair?-test
   (testing "true-matches"
@@ -20,14 +20,14 @@
       \p \q)))
 
 (deftest count-matches-helper-test
-  (is (= ['(true true) 2] (SUT/count-matches-helper SUT/top-a SUT/bot-a)))
-  (is (= ['(true false) 1] (SUT/count-matches-helper SUT/top-b SUT/bot-b)))
-  (is (= ['(true false) 1] (SUT/count-matches-helper SUT/top-a SUT/bot-b))))
+  (is (= 2 (SUT/count-matches-helper SUT/top-a SUT/bot-a)))
+  (is (= 1 (SUT/count-matches-helper SUT/top-b SUT/bot-b)))
+  (is (= 1 (SUT/count-matches-helper SUT/top-a SUT/bot-b))))
 
 (deftest count-matches-test
-  (is (= ['(true true) 2] (SUT/count-matches "A" "A")))
-  (is (= ['(true false) 1] (SUT/count-matches "B" "B")))
-  (is (= ['(true false) 1] (SUT/count-matches "A" "B"))))
+  (is (= 2 (SUT/count-matches "A" "A")))
+  (is (= 1 (SUT/count-matches "B" "B")))
+  (is (= 1 (SUT/count-matches "A" "B"))))
 
 (def oh \0)
 (def one \1)
