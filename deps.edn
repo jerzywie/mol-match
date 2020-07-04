@@ -1,0 +1,21 @@
+{:deps
+ {org.clojure/math.numeric-tower {:mvn/version "0.0.4"}}
+
+ :paths ["src" "resources" "test"]
+
+ :aliases
+ {
+  :test
+  {:extra-paths ["test"]
+   :extra-deps {org.clojure/test.check {:mvn/version "0.10.0"}}}
+
+  :test-runner-cognitect
+  {:extra-paths ["test"]
+   :extra-deps  {com.cognitect/test-runner
+                 {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                  :sha     "f7ef16dc3b8332b0d77bc0274578ad5270fbfedd"}}
+   :main-opts   ["-m" "cognitect.test-runner"]}
+
+  :build-depstar
+  {:extra-deps {seancorfield/depstar {:mvn/version "1.0.94"}}}
+}}
